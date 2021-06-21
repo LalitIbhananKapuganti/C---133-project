@@ -1,0 +1,85 @@
+body
+{
+    background-size: cover;
+    background-position: center;
+}
+
+.heading
+{
+font-size: 23px;
+width: 100%;
+margin: 0px;
+margin-bottom: 100px;
+}
+
+canvas
+{
+    box-shadow: 10px 10px 10px #808080;
+    border-radius: 10px;
+    margin-top: 150px;
+}
+
+#bed_room
+{
+    margin-bottom: 20px;
+    text-decoration: underline red solid ;
+    align-content: center;
+    background-color: silver;
+    border-top: 3px solid gold;
+    border-radius: 5px;
+}
+
+#living_room
+{
+    margin-bottom: 20px;
+    text-decoration: underline red solid ;
+    align-content: center;
+    background-color: silver;
+    border-top: 3px solid gold;
+    border-radius: 5px;
+}
+
+#study_desk
+{
+    margin-bottom: 20px;
+    text-decoration: underline red solid ;
+    align-content: center;
+    background-color: silver;
+    border-top: 3px solid gold;
+    border-radius: 5px;
+}
+
+#books
+{
+    margin-bottom: 20px;
+    text-decoration: underline red solid ;
+    align-content: center;
+    background-color: silver;
+    border-top: 3px solid gold;
+    border-radius: 5px;
+}
+
+#TV
+{
+    margin-bottom: 20px;
+    text-decoration: underline red solid ;
+    align-content: center;
+    background-color: silver;
+    border-top: 3px solid gold;
+    border-radius: 5px;
+}
+
+#status_books
+{
+font-size: 20px;
+}
+
+#status_studydesk
+{
+font-size: 20px;
+}
+
+#status_TV
+{
+font-size: 20px;
+}

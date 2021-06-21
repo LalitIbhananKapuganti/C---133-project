@@ -1,0 +1,90 @@
+<html>
+<head>
+
+	<title>Object Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+
+  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body background="TV_background.jpg">
+
+  <button onclick="TV_back()" class="btn btn-dark">Back</button>
+
+  <center>
+    <h1 class="btn btn-info heading">Object Detection</h1>
+
+    <h3 id="status_TV" class="btn btn-primary"></h3>
+
+  </center>
+
+  <script>
+    
+    img_TV = "";
+    status_TV = "";
+
+    function TV_back()
+    {
+      window.location = "index.html";
+    }
+
+function preload()
+{
+    img_TV = loadImage('TV_image.jpg');
+}
+
+function setup()
+{
+    canvas = createCanvas(640, 420);
+    canvas.center();
+    objectDetector = ml5.objectDetector('cocossd', modelLoaded);
+    document.getElementById("status_TV").innerHTML = "Status : Detecting Objects";
+}
+
+function draw()
+{
+    image(img_TV, 0, 0, 640, 420);
+    
+    if (status_TV != "")
+    {
+        for (i = 0; i < objects.length; i++)
+        {
+            document.getElementById("status_TV").innerHTML = "Status : Object Detected";
+
+            fill("#FF0000");
+            percent = floor(objects[i].confidence * 100);
+            text(objects[i].label + "" + percent + "%", objects[i].x + 15, objects[i].y + 15);
+            noFill();
+            stroke("#FF0000");
+            rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height)
+        }
+    }
+}
+
+function modelLoaded()
+{
+    console.log("Model Loaded");
+    status = true;
+    objectDetector.detect(img_TV, gotResult);
+}
+
+function gotResult(error, results)
+{
+    if(error)
+    {
+        console.log(error);
+    }
+    console.log(results);
+    objects = results;
+}
+  </script>
+
+</body>
+</html>
